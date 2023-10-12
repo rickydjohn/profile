@@ -1,8 +1,14 @@
 package main
 
-import "net/http"
+import (
+	"log"
+	"net/http"
+)
+
+var port string = "8000"
 
 func landing(rw http.ResponseWriter, req *http.Request) {
+	log.Println("received request from ", req.RemoteAddr)
 	html := `
 <!DOCTYPE html>
 <html>
@@ -26,7 +32,8 @@ func landing(rw http.ResponseWriter, req *http.Request) {
 
 func main() {
 	http.HandleFunc("/", landing)
-	if err := http.ListenAndServe(":8000", nil); err != nil {
+	log.Printf("starting service on %s port", port)
+	if err := http.ListenAndServe("0.0.0.0:"+port, nil); err != nil {
 		panic(err)
 	}
 }
