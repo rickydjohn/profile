@@ -16,11 +16,7 @@ func landing(rw http.ResponseWriter, req *http.Request) {
 <title>Page Title</title>
 </head>
 <body>
-
-<h1>My First Heading</h1>
-<p>My first paragraph</p>
-<p>My first paragraph</p>
-<p>My first paragraph</p>
+<h1> that deployed app </h1>
 
 </body>
 </html>
