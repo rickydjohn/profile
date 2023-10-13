@@ -16,7 +16,7 @@ func landing(rw http.ResponseWriter, req *http.Request) {
 <title>Page Title</title>
 </head>
 <body>
-<h1> that deployed app </h1>
+<h1> another deploy </h1>
 
 </body>
 </html>
