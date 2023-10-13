@@ -1,0 +1,7 @@
+namespace: profile
+deployment:
+  image: "rickydjohn/profile"
+  tag: "latest"
+
+hostnames:
+  - rickydj.co.in

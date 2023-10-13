@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: profile
+  name: profile
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: profile
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: profile
+    spec:
+      containers:
+      - image: "{{ .Values.deployment.image }}:{{ .Values.deployment.tag }}"
+        name: profile
+        resources: {}
+status: {}

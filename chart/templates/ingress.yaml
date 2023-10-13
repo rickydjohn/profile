@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    acme.cert-manager.io/http01-edit-in-place: "true"
+    cert-manager.io/cluster-issuer: letsencrypt-staging
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: profile
+  namespace: {{ .Values.namespace }}
+spec:
+  ingressClassName: nginx
+  rules:
+{{- range .Values.hostnames }}
+  - host: {{ . }}
+    http:
+      paths:
+      - backend:
+          service:
+            name: profile
+            port:
+              number: 8000
+        path: /
+        pathType: Prefix
+{{- end }}
+  tls:
+  - hosts:
+    - rickydj.co.in
+    secretName: rickydj-tls
