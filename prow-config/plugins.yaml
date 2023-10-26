@@ -1,25 +1,27 @@
-apiVersion: v1
-data:
-  plugins.yaml: |
+config_updater:
+  maps:
+    prow-config/config.yaml:
+      name: config
+    prow-config/plugins.yaml:
+      name: plugins
+    prow-config/jobs/**/*.yaml:
+      name: job-config
+      gzip: true
+plugins:
+  rickydjohn/profile:
     plugins:
-      rickydjohn/profile:
-        plugins:
-        - config-updater
-        - approve
-        - assign
-        - blunderbuss
-        - cat
-        - dog
-        - help
-        - heart
-        - hold
-        - label
-        - lgtm
-        - trigger
-        - verify-owners
-        - wip
-        - yuks
-kind: ConfigMap
-metadata:
-  name: plugins
-  namespace: prow
+    - config-updater
+    - approve
+    - assign
+    - blunderbuss
+    - cat
+    - dog
+    - help
+    - heart
+    - hold
+    - label
+    - lgtm
+    - trigger
+    - verify-owners
+    - wip
+    - yuks
