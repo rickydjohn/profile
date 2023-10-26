@@ -8,20 +8,15 @@ config_updater:
       name: job-config
       gzip: true
 plugins:
-  rickydjohn/profile:
+  rickydjohn:
     plugins:
-    - config-updater
-    - approve
-    - assign
-    - blunderbuss
     - cat
     - dog
     - help
     - heart
-    - hold
     - label
-    - lgtm
     - trigger
-    - verify-owners
-    - wip
     - yuks
+  rickydjohn/profile:
+    plugins:
+    - config-updater
