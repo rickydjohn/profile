@@ -1,0 +1,10 @@
+presubmits:
+rickydjohn/profile:
+- name: deploy-prow
+  decorate: true
+  branches:
+    - '^main$'
+  spec:
+    containers:
+    - image: alpine
+      command: ["sleep", "200"]

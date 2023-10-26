@@ -1,0 +1,25 @@
+apiVersion: v1
+data:
+  plugins.yaml: |
+    plugins:
+      rickydjohn/profile:
+        plugins:
+        - config-updater
+        - approve
+        - assign
+        - blunderbuss
+        - cat
+        - dog
+        - help
+        - heart
+        - hold
+        - label
+        - lgtm
+        - trigger
+        - verify-owners
+        - wip
+        - yuks
+kind: ConfigMap
+metadata:
+  name: plugins
+  namespace: prow
