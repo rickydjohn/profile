@@ -1,0 +1,23 @@
+presubmits:
+  rickydjohn/profile:
+    - name: check-prow-config
+      branches:
+        - ^main$
+      decorate: true
+      decoration_config:
+        ssh_host_fingerprints:
+        - "github.com ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCj7ndNxQowgcQnjshcLrqPEiiphnt+VTTvDP6mHBL9j1aNUkY4Ue1gvwnGLVlOhGeYrnZaMgRK6+PKCUXaDbC7qtbW8gIkhL7aGCsOr/C56SJMy/BCZfxd1nWzAOxSDPgVsmerOBYfNqltV9/hWCqBywINIR+5dIg6JTJ72pcEpEjcYgXkE2YEFXV1JHnsKgbLWNlhScqb2UmyRkQyytRLtL+38TGxkxCflmO+5Z8CSSNY7GidjMIZ7Q4zMjA2n1nGrlTDkzwDCsw+wqFPGQA179cnfGWOWRVruj16z6XyvxvjJwbz0wQZ75XK5tKSb7FNyeIEs4TT4jk+S4dhPeAUC5y+bDYirYgM4GC7uEnztnZyaVWQ7B381AK4Qdrwt51ZqExKbQpTUNn+EjqoTwvqNj4kqx5QUCI0ThS/YkOxJCXmPUWZbhjpCg56i+2aB6CmK2JGhn57K5mj0MNdBXA4/WnwH6XoPWJzK5Nyu2zB3nAZp+S5hpQs+p1vN1/wsjk="
+        ssh_key_secrets:
+        - gh-ssh-key
+      clone_uri: "git@github.com:rickydjohn/profile.git"
+      skip_report: false
+      run_if_changed: 'prow-config/.*'
+      spec:
+        containers:
+          - image: gcr.io/k8s-prow/checkconfig:v20211229-d20cd1c87e
+            command:
+              - /checkconfig
+            args:
+            - --config-path=config/config.yaml
+            - --job-config-path=config/jobs
+            - --plugin-config=config/plugins.yaml

@@ -4,8 +4,6 @@ rickydjohn/profile:
   decorate: true
   always_run: true
   skip_report: false
-  branches:
-    - '^main$'
   spec:
     containers:
     - image: alpine
