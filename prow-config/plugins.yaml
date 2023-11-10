@@ -1,12 +1,12 @@
-#config_updater:
-#  maps:
-#    prow-config/config.yaml:
-#      name: config
-#    prow-config/plugins.yaml:
-#      name: plugins
-#    prow-config/jobs/**/*.yaml:
-#      name: job-config
-#      gzip: true
+config_updater:
+  maps:
+    prow-config/config.yaml:
+      name: config
+    prow-config/plugins.yaml:
+      name: plugins
+    prow-config/jobs/**/*.yaml:
+      name: job-config
+      gzip: true
 plugins:
   rickydjohn/profile:
     plugins:
@@ -17,6 +17,4 @@ plugins:
     - label
     - trigger
     - yuks
-#  rickydjohn/profile:
-#    plugins:
-#    - config-updater
+    - config-updater

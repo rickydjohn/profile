@@ -2,6 +2,8 @@ presubmits:
 rickydjohn/profile:
 - name: deploy-prow
   decorate: true
+  always_run: true
+  skip_report: false
   branches:
     - '^main$'
   spec:
