@@ -18,3 +18,7 @@ plugins:
     - trigger
     - yuks
     - config-updater
+lgtm:
+  - repos:
+    - rickydjohn/profile
+    lgtm_acts_as_approve: true
