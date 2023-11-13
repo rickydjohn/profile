@@ -21,7 +21,7 @@ jobs:
           password: ${{ secrets.DOCKER_SECRET }}
 
       - name: print shell
-        run: echo "${{ env.hash }}"
+        run: env
 
       - name: Build and push
         uses: docker/build-push-action@v3
