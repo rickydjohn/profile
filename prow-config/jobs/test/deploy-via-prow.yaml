@@ -1,12 +1,38 @@
-presubmits:
-rickydjohn/profile:
-- name: deploy-prow
+periodics:
+- interval: 24h
+  name: echo-test
   decorate: true
-  always_run: true
-  skip_report: false
-  branches:
-    - '^main$'
   spec:
     containers:
     - image: alpine
-      command: ["sleep", "200"]
+      command: ["/bin/date"]
+  
+presubmits:
+  rickydjohn/profile:
+  - name: test-presubmit
+    decorate: true
+    always_run: true
+    skip_report: false
+    spec:
+      containers:
+      - image: ubuntu:22.04
+        command:
+        - sh
+        - "-c"
+        - |
+          /bin/bash <<'EOF'
+          # Normal script content possible here
+          env
+          echo "checking for variable GITHUB_APP_ID"
+          echo $GITHUB_APP_ID
+          sleep 10
+          EOF
+  - name: deploy-prow
+    decorate: true
+    always_run: false
+    skip_report: false
+    spec:
+      containers:
+      - image: alpine
+        command: ["sleep", "10"]
+  

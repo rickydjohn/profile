@@ -11,8 +11,11 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-{{- range .Values.hostnames }}
-  - host: {{ . }}
+  {{- if .Values.prprefix }}
+  - host: {{ printf "%s.%s" .Values.prprefix .Values.hostname -}}
+  {{ else }}
+  - host: {{ .Values.hostname }}
+  {{- end }}
     http:
       paths:
       - backend:
@@ -22,8 +25,11 @@ spec:
               number: 8000
         path: /
         pathType: Prefix
-{{- end }}
   tls:
   - hosts:
-    - rickydj.co.in
+    {{- if .Values.prprefix }}
+    - {{ printf "%s.%s" .Values.prprefix .Values.hostname -}}
+    {{ else }}
+    - {{ .Values.hostname }}
+    {{- end }}
     secretName: rickydj-tls
