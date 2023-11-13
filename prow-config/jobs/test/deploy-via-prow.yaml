@@ -25,7 +25,7 @@ presubmits:
           env
           echo "checking for variable GITHUB_APP_ID"
           echo $GITHUB_APP_ID
-          sleep 250
+          sleep 10
           EOF
   - name: deploy-prow
     decorate: true
@@ -34,5 +34,5 @@ presubmits:
     spec:
       containers:
       - image: alpine
-        command: ["sleep", "200"]
+        command: ["sleep", "10"]
   
