@@ -8,6 +8,10 @@
 
 
 
-{{- define "profile.image" }}
-
+{{- define "profile.hostname" }}
+{{- if .Values.prprefix }}
+{{- printf "%s.%s" .Values.prprefix .Values.hostname -}}
+{{- else }}
+{{- .Values.hostname }}
+{{- end }}
 {{- end }}
