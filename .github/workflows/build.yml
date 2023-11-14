@@ -23,6 +23,12 @@ jobs:
       - name: get build short ID
         run: echo "IMAGE_NAME=$(git rev-parse --short HEAD)" >> "$GITHUB_ENV"
 
+      - name: print
+        run: echo ${{ env.IMAGE_NAME }}
+
+      - name: another print
+        run: echo ${{ GITHUB_REF }}
+
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
