@@ -23,11 +23,8 @@ jobs:
       - name: get build short ID
         run: echo "IMAGE_NAME=$(git rev-parse --short HEAD)" >> "$GITHUB_ENV"
 
-      - name: printenv
-        run: echo ${{ env.IMAGE_NAME }}
-
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: rickydjohn/profile:$IMAGE_NAME
+          tags: rickydjohn/profile:${{ env.IMAGE_NAME }}
