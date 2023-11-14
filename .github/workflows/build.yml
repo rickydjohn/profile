@@ -26,6 +26,14 @@ jobs:
       - name: print shell
         run: env
 
+      - name: Show GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+
+      - name: actual commit id
+        echo: ${{ github.event.pull_request.head.sha }}
+
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
