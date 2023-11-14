@@ -14,3 +14,5 @@ spec:
     path: chart
     repoURL: git@github.com:rickydjohn/profile.git
     targetRevision: HEAD
+  syncPolicy:
+    automated: {} 
