@@ -24,7 +24,7 @@ jobs:
         run: echo "IMAGE_NAME=$(git rev-parse --short HEAD)" >> "$GITHUB_ENV"
 
       - name: printenv
-        run: cat $GITHUB_ENV
+        run: echo ${{ env.IMAGE_NAME }}
 
       - name: Build and push
         uses: docker/build-push-action@v3
