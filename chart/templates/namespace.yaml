@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Namespace
 metadata:
   creationTimestamp: null
-  name: {{ .Values.namespace }}
+  name: {{ template "profile.namespace" . }}
 spec: {}
 status: {}
 

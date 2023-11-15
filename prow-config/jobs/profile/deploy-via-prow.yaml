@@ -1,0 +1,21 @@
+presubmits:
+  rickydjohn/profile:
+  - name: deploy-ephemeral
+    decorate: true
+    always_run: false
+    skip_report: false
+    spec:
+      serviceAccountName: provisioner
+      containers:
+      - image: rickydjohn/ephemeral:latest
+        command: ["./hacks/ephemeral-create.sh"]
+
+  - name: validate-pr
+    decorate: true
+    always_run: true
+    skip_report: false
+    spec:
+      containers:
+      - image: alpine
+        command: ["sleep", "10"]
+  

@@ -7,15 +7,11 @@ metadata:
     nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
     nginx.ingress.kubernetes.io/rewrite-target: /
   name: profile
-  namespace: {{ .Values.namespace }}
+  namespace: {{ template "profile.namespace" . }}
 spec:
   ingressClassName: nginx
   rules:
-  {{- if .Values.prprefix }}
-  - host: {{ printf "%s.%s" .Values.prprefix .Values.hostname -}}
-  {{ else }}
-  - host: {{ .Values.hostname }}
-  {{- end }}
+  - host: {{ template "profile.hostname" . }}
     http:
       paths:
       - backend:
@@ -27,9 +23,5 @@ spec:
         pathType: Prefix
   tls:
   - hosts:
-    {{- if .Values.prprefix }}
-    - {{ printf "%s.%s" .Values.prprefix .Values.hostname -}}
-    {{ else }}
-    - {{ .Values.hostname }}
-    {{- end }}
+    - {{ template "profile.hostname" . }}
     secretName: rickydj-tls

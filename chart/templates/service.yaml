@@ -5,7 +5,7 @@ metadata:
   labels:
     app: profile
   name: profile
-  namespace: {{ .Values.namespace }}
+  namespace: {{ template "profile.namespace" . }}
 spec:
   ports:
   - name: 8000-8000
