@@ -3,16 +3,20 @@
 set -x
 
 
-COMMIT_ID=$(echo $PULL_PULL_SHA | cut -f 1-7)
+COMMIT_ID=$(echo $PULL_PULL_SHA | cut -c 1-7)
 PRPREFIX=$(echo "$REPO_NAME-$PULL_NUMBER")
 DELETEAT=$(($(date +%s) + 3600 ))
+
+echo "Current working directory: $PWD"
+echo "current files:"
+ls -l
 
 echo "
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   annotations:
-    deleteAfter: $DELETEAT
+    deleteAfter: \"$DELETEAT\"
   name: $PRPREFIX
   namespace: argocd
 spec:
