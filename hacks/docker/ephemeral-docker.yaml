@@ -3,4 +3,7 @@ FROM ubuntu:22.04
 RUN apt-get update && \
     apt-get install -y wget && \
     wget https://storage.googleapis.com/kubernetes-release/release/v1.28.2/bin/linux/amd64/kubectl -O /usr/local/bin/kubectl && \
-    chmod +x /usr/local/bin/kubectl
+    chmod +x /usr/local/bin/kubectl && \
+    wget https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64  -O /usr/local/bin/argocd&& \
+    chmod +x /usr/local/bin/argocd
+

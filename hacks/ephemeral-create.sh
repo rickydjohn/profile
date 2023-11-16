@@ -36,7 +36,16 @@ spec:
     repoURL: git@github.com:rickydjohn/profile.git
     targetRevision: $PULL_HEAD_REF
   syncPolicy:
+    managedNamespaceMetadata:
+      labels:
+        name: prprefix
+        value: $PRPREFIX
     automated: {} 
     syncOptions:
     - CreateNamespace=true
 " | kubectl apply -f - 
+
+if [[ $? -ne 0 ]]; then
+  echo "app creation failed"
+  exit 1
+fi
