@@ -15,8 +15,10 @@ echo "
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  annotations:
+  labels:
     deleteAfter: \"$DELETEAT\"
+    expiry: "true"
+    environment: "dev"
   name: $PRPREFIX
   namespace: argocd
 spec:
@@ -40,3 +42,9 @@ spec:
     syncOptions:
     - CreateNamespace=true
 " | kubectl apply -f - 
+
+
+if [[ $? -ne 0 ]] ; then
+  echo "failed to bring up argo app $PRPREFIX"
+  exit 1
+fi
