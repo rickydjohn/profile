@@ -33,7 +33,7 @@ spec:
       - name: prprefix
         value: $PRPREFIX
       - name: deployment.tag
-        value: $COMMIT_ID
+        value: \"$COMMIT_ID\"
     path: chart
     repoURL: git@github.com:rickydjohn/profile.git
     targetRevision: $PULL_HEAD_REF
