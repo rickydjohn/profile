@@ -11,6 +11,9 @@ spec:
     helm:
       valueFiles:
       - values.yaml
+      parameters:
+        - name: deployment.tag
+          value: $ARGOCD_APP_REVISION_SHORT
     path: chart
     repoURL: git@github.com:rickydjohn/profile.git
     targetRevision: HEAD
