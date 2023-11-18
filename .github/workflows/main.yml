@@ -20,8 +20,10 @@ jobs:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_SECRET }}
 
-      - name: print shell
-        run: env
+      - name: Show GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
 
       - name: actual commit id
         uses: 2428392/gh-truncate-string-action@v1.2.0
