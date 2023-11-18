@@ -3,7 +3,7 @@
 set -x
 
 
-COMMIT_ID=$(echo $PULL_PULL_SHA | cut -c 1-7)
+COMMIT_ID=$(echo $PULL_BASE_SHA | cut -c 1-7)
 NAME=$(echo "$REPO_NAME")-prod
 
 echo "Current working directory: $PWD"

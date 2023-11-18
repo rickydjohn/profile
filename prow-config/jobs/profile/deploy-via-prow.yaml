@@ -29,5 +29,5 @@ postsubmits:
       serviceAccountName: provisioner
       containers:
       - image: rickydjohn/ephemeral:latest
-        command: ["sleep", "500"]
+        command: ["./hacks/release-main.sh"]
 
