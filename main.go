@@ -17,6 +17,7 @@ func landing(rw http.ResponseWriter, req *http.Request) {
 </head>
 <body>
 <h1> finally its all set. thank god </h1>
+<p> all set again </p>
 
 </body>
 </html>
