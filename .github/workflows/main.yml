@@ -27,7 +27,7 @@ jobs:
         uses: 2428392/gh-truncate-string-action@v1.2.0
         id: truncatedString
         with:
-          stringToTruncate: ${GITHUB_SHA}
+          stringToTruncate: ${env.GITHUB_SHA}
           maxLength: 7
 
       - name: print rev-parse out
