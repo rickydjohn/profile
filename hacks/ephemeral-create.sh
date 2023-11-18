@@ -17,8 +17,8 @@ kind: Application
 metadata:
   labels:
     deleteAfter: \"$DELETEAT\"
-    expiry: "true"
-    environment: "dev"
+    expiry: \"true\"
+    environment: \"dev\"
   name: $PRPREFIX
   namespace: argocd
 spec:
