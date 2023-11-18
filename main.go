@@ -16,9 +16,7 @@ func landing(rw http.ResponseWriter, req *http.Request) {
 <title>Page Title</title>
 </head>
 <body>
-<h1> another deploy after build </h1>
-<p> test webhook </p>
-
+<h1> finally its all set. thank god </h1>
 
 </body>
 </html>
