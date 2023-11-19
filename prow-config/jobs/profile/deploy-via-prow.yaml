@@ -42,8 +42,7 @@ periodics:
     serviceAccountName: provisioner
     containers:
     - image: rickydjohn/ephemeral:latest
-      command:
-        - hacks/cleanup.sh
+      command: ["./hacks/cleanup.sh"]
   extra_refs:
   - org: rickydjohn
     repo: profile
