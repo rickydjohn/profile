@@ -28,7 +28,7 @@ spec:
       - values.yaml
       parameters:
       - name: deployment.tag
-        value: $COMMIT_ID
+        value: \"$COMMIT_ID\"
     path: chart
     repoURL: git@github.com:rickydjohn/profile.git
     targetRevision: HEAD
