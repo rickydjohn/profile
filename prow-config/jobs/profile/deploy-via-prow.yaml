@@ -43,7 +43,7 @@ periodics:
     containers:
     - image: rickydjohn/ephemeral:latest
       command:
-        - hack/cleanup.sh
+        - hacks/cleanup.sh
   extra_refs:
   - org: rickydjohn
     repo: profile
