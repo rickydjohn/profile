@@ -15,6 +15,8 @@ echo "
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
   labels:
     deleteAfter: \"$DELETEAT\"
     expiry: \"true\"
