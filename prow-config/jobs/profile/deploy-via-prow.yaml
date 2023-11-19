@@ -31,3 +31,14 @@ postsubmits:
       - image: rickydjohn/ephemeral:latest
         command: ["./hacks/release-main.sh"]
 
+periodics:
+  rickydjohn/profile:
+  - name: profile-cleanup
+    decorate: true
+    interval: 2h
+    specs:
+      serviceAccount: provisioner
+      containers:
+      - image: rickydjohn/ephemeral:latest
+        command: ["./hacks/cleanup.sh"]
+
