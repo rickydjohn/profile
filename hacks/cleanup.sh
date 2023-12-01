@@ -1,6 +1,8 @@
 
 #!/usr/bin/env bash
 
+set -x
+
 val="$(kubectl get applications.argoproj.io -n argocd -l expiry,environment=dev -o custom-columns=":.metadata.name,:.metadata.labels.deleteAfter")"
 
 
