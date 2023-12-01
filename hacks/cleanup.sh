@@ -15,5 +15,8 @@ while IFS= read -r line; do
   if [[ `date +%s` -ge $expiry ]]; then
     echo "deleting app $name expiring at $expiry"
     kubectl delete -n argocd applications.argoproj.io $name
+    if [[ $? -ne 0 ]]; then
+      exit 1
+    fi
   fi
 done <<<  "$val"

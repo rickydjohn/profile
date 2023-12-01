@@ -5,7 +5,7 @@ set -x
 
 COMMIT_ID=$(echo $PULL_PULL_SHA | cut -c 1-7)
 PRPREFIX=$(echo "$REPO_NAME-$PULL_NUMBER")
-DELETEAT=$(($(date +%s) + 3600 ))
+DELETEAT=$(($(date +%s) + 360 ))
 
 echo "Current working directory: $PWD"
 echo "current files:"
