@@ -31,21 +31,21 @@ postsubmits:
       - image: rickydjohn/ephemeral:latest
         command: ["./hacks/release-main.sh"]
 
-#periodics:
-#- interval: 1h
-#  decorate: true
-#  decoration_config:
-#    ssh_key_secrets:
-#    - gh-ssh-key
-#  name: ephemeral-env-cleanup
-#  spec:
-#    serviceAccountName: provisioner
-#    containers:
-#    - image: rickydjohn/ephemeral:latest
-#      command: ["sleep", "200"]
-#  extra_refs:
-#  - org: rickydjohn
-#    repo: profile
-#    base_ref: main
-#    clone_uri: "git@github.com:rickydjohn/profile.git"
-#    skip_submodules: true
+periodics:
+- interval: 1h
+  decorate: true
+  decoration_config:
+    ssh_key_secrets:
+    - gh-ssh-key
+  name: ephemeral-env-cleanup
+  spec:
+    serviceAccountName: provisioner
+    containers:
+    - image: rickydjohn/ephemeral:latest
+      command: ["./hacks/cleanup.sh"]
+  extra_refs:
+  - org: rickydjohn
+    repo: profile
+    base_ref: main
+    clone_uri: "git@github.com:rickydjohn/profile.git"
+    skip_submodules: true
