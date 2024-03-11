@@ -31,7 +31,7 @@ postsubmits:
       - image: rickydjohn/ephemeral:latest
         command: ["./hacks/release-main.sh"]
 
-eriodics:
+periodics:
 - interval: 1d
   decorate: true
   decoration_config:
