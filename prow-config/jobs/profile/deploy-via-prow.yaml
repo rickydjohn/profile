@@ -32,7 +32,7 @@ postsubmits:
         command: ["./hacks/release-main.sh"]
 
 periodics:
-- interval: 1h
+- interval: 480h
   decorate: true
   decoration_config:
     ssh_key_secrets:
