@@ -31,8 +31,8 @@ postsubmits:
       - image: rickydjohn/ephemeral:latest
         command: ["./hacks/release-main.sh"]
 
-periodics:
-- interval: 1h
+eriodics:
+- interval: 1d
   decorate: true
   decoration_config:
     ssh_key_secrets:
